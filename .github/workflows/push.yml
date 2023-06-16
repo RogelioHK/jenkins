@@ -1,23 +1,26 @@
+name: CI
+
 on:
   push:
     branches:
       - main
 
-name: deploy
-
 jobs:
-  deploy:
-    name: deploy to cluster
+  build-and-push:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout Repository
+        uses: actions/checkout@v2
 
-      - name: build and push to docker
-        uses: docker/build-push-action@v2
+      - name: Login to Docker Hub
+        uses: docker/login-action@v1
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
-          repository: "bigredrocketoflove/lemp"
-          tag_with_ref: true
-          tag_with_sha: true
+
+      - name: Build and Push Docker Image
+        run: |
+          docker build -t your-image:tag .
+          docker push your-image:tag
+
