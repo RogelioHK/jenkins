@@ -43,6 +43,7 @@ RUN chown -R mysql:mysql /var/lib/mysql /var/run/mysqld
 RUN echo 'mysql-server mysql-server/root_password password 316170040' | debconf-set-selections
 RUN echo 'mysql-server mysql-server/root_password_again password 316170040' | debconf-set-selections
 
+COPY index.html /var/www/html/index.html
 COPY setup.sql /docker-entrypoint-initdb.d/setup.sql
 # Expone el puerto 80 para que pueda ser accedido desde fuera del contenedor
 EXPOSE 80
