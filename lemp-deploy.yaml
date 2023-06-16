@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lemp-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: lemp
+  template:
+    metadata:
+      labels:
+        app: lemp
+    spec:
+      volumes:
+        - name: html-volume
+          persistentVolumeClaim:
+            claimName: html-pvc
+              #- name: database-volume
+              #persistentVolumeClaim:
+              #claimName: database-pvc
+      containers:
+        - name: nginx
+          image: bigredrocketoflove/lemp:latest
+          ports:
+            - containerPort: 80
+          volumeMounts:
+            - name: html-volume
+              mountPath: /var/www/html
+                #- name: database-volume
+              # mountPath: /var/lib/mysql/teamsoft
+

@@ -1,0 +1,8 @@
+-- Insertar cliente 1
+INSERT INTO cliente (email, nombre, receta) VALUES ('JuanP@correo.com', 'Juan Pérez', 'Los huevos con jamón es un plato clásico y popular que combina huevos y jamón en una preparación sencilla y deliciosa.');
+
+-- Insertar cliente 2
+INSERT INTO cliente (email, nombre, receta) VALUES ('MariaG@correo.com', 'María Gómez', 'El huevo hervido es un plato simple y versátil que se obtiene al cocinar un huevo en agua caliente hasta que la clara y la yema estén completamente cocidas.');
+
+-- Insertar cliente 3
+INSERT INTO cliente (email, nombre, receta) VALUES ('PedroR@correo.com', 'Pedro Rodríguez', 'El pan francés, también conocido como "French toast" en inglés, es una deliciosa preparación de pan que se sumerge en una mezcla de huevo batido y leche, y luego se cocina en una sartén hasta que esté dorado y crujiente por fuera y suave por dentro.');
