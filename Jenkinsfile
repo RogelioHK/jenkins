@@ -39,11 +39,10 @@ pipeline {
     stage('Deploying lemp container to Kubernetes') {
       steps {
         script {
-          kubernetesDeploy(configs: "lemp-deploy.yaml", "lemp-svc.yaml")
+          kubernetesDeploy(configs: ["lemp-deploy.yaml", "lemp-svc.yaml"])
         }
       }
     }
 
   }
-
 }
